@@ -1,0 +1,21 @@
+{
+  "name": "w7",
+  "version": "1.0.0",
+  "description": "",
+  "main": "test.js",
+  "scripts": {
+    "run": "node app.js",
+    "watch": "tsc --watch",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "pnpm": "^8.6.11",
+    "typescript": "^5.1.6"
+  },
+  "devDependencies": {
+    "bootstrap": "^5.3.1",
+    "node": "^20.5.0"
+  }
+}
