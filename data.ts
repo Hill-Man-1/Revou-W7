@@ -29,26 +29,41 @@ const btnProduct:HTMLButtonElement = document.getElementById('btnProduct') as HT
 
 // INPUT PRODUCT VARIABLES END
 
+// REUSABLE FUNCTIONS START
+
+function show(element:HTMLElement):void{
+    element.hidden = false;
+}
+
+function hide(element:HTMLElement):void{
+    element.hidden = true;
+}
+
+function emptyForm():void{
+    alert('Please Fill the Form')
+};
+
+// REUSABLE FUNCTIONS END
 
 
 myOption.addEventListener("change", dropdownFunc);
 
 function dropdownFunc():void {
     if (myOption.value === "1") {
-        cash.style.display = "block";
-        product.style.display = "none";
-        tableCash.hidden = false;
-        tableProduct.hidden = true;
+        show(cash);
+        show(tableCash);
+        hide(product);
+        hide(tableProduct);
     } else if (myOption.value === "2") {
-        cash.style.display = "none";
-        product.style.display = "block";
-        tableProduct.hidden = false;
-        tableCash.hidden = true;
+        hide(cash);
+        hide(tableCash);
+        show(product);
+        show(tableProduct);
     } else {
-        cash.style.display = "none";
-        product.style.display = "none";
-        tableProduct.hidden = true;
-        tableCash.hidden = true;
+        hide(cash);
+        hide(tableCash);
+        hide(product);
+        hide(tableProduct);
     }
 }
 
@@ -62,7 +77,7 @@ function cashData(e:Event):void {
     const noteValue:string = String (cashNote.value);
 
     if (formCash.value == '' || cashDesc.value == '' || cashAmount.value == '' || cashNote.value == '') {
-        alert('Please Fill the Form');
+        emptyForm();
     } else {
         let oldTableCash = tableCash.innerHTML;
         const newTableCash = `
@@ -91,7 +106,7 @@ function productData(e: Event): void {
     const noteProValue: string = String(productNote.value);
 
     if (formProduct.value == '' || productDesc.value == '' || productPrice.value == '' || productNote.value == '') {
-        alert('Please Fill the Form');
+        emptyForm();
     } else {
         let oldTableProduct = tableProduct.innerHTML;
         const newTableProduct = `
@@ -109,7 +124,7 @@ function productData(e: Event): void {
 }
 
 document.addEventListener('click', (e: Event):void => {
-    const isTodoDelete = (e.target as Element).classList.contains('btn-delete');
+    const isTodoDelete:boolean = (e.target as Element).classList.contains('btn-delete');
     if (isTodoDelete) {
         const btnDelete = e.target as Element;
         const isConfirm = confirm('Are You Sure?');
