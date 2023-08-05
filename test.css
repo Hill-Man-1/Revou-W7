@@ -87,12 +87,14 @@ body{
     -moz-box-shadow: -10px -3px 12px -1px rgba(255,99,71,0.46);
 }
 
-/* .cash{
-    display: none;
+.btn-delete{
+    cursor: pointer;
+    width: 20%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: auto;
 }
-.product{
-    display: none;
-} */
 
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {

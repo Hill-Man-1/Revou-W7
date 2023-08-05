@@ -1,9 +1,9 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-const cashModule_1 = require("./cashModule");
+const cashModule_js_1 = require("./cashModule.js");
 const productModule_1 = require("./productModule");
 const dropdownModule_1 = require("./dropdownModule");
-const cashData = (0, cashModule_1.handleCashSubmit)();
+const cashData = (0, cashModule_js_1.handleCashSubmit)();
 const productData = (0, productModule_1.handleProductSubmit)();
 const dropdownFunc = (0, dropdownModule_1.handleDropdownChange)();
 const myOption = document.getElementById('my-option');

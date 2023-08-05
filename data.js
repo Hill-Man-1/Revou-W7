@@ -1,9 +1,25 @@
 "use strict";
+// DROP DOWN VARIABLES START
 const myOption = document.getElementById('my-option');
 const product = document.getElementById('product');
 const cash = document.getElementById('cash');
 const tableCash = document.getElementById('table-cash');
 const tableProduct = document.getElementById('table-product');
+// DROP DOWN VARIABLES END
+//  INPUT CASH VARIABLES START
+const formCash = document.getElementById('form-cash');
+const cashDesc = document.getElementById('cash-desc');
+const cashAmount = document.getElementById('cash-amount');
+const cashNote = document.getElementById('cash-note');
+const btnCash = document.getElementById('btnCash');
+// INPUT CASH VARIABLES END
+// INPUT PRODUCT VARIABLES START
+const formProduct = document.getElementById('form-product');
+const productDesc = document.getElementById('product-desc');
+const productPrice = document.getElementById('product-price');
+const productNote = document.getElementById('product-note');
+const btnProduct = document.getElementById('btnProduct');
+// INPUT PRODUCT VARIABLES END
 myOption.addEventListener("change", dropdownFunc);
 function dropdownFunc() {
     if (myOption.value === "1") {
@@ -25,11 +41,6 @@ function dropdownFunc() {
         tableCash.hidden = true;
     }
 }
-const formCash = document.getElementById('form-cash');
-const cashDesc = document.getElementById('cash-desc');
-const cashAmount = document.getElementById('cash-amount');
-const cashNote = document.getElementById('cash-note');
-const btnCash = document.getElementById('btnCash');
 btnCash.addEventListener('click', cashData);
 function cashData(e) {
     e.preventDefault();
@@ -48,18 +59,13 @@ function cashData(e) {
                 <td>${descValue}</td>
                 <td>${cashValue}</td>
                 <td>${noteValue}</td>
-                <td><button type="submit" class="btn-delete">DELETE</button></td>
+                <td><button type="submit" class="btn-delete">x</button></td>
             </tr>
         `;
         oldTableCash += newTableCash;
         tableCash.innerHTML = oldTableCash;
     }
 }
-const formProduct = document.getElementById('form-product');
-const productDesc = document.getElementById('product-desc');
-const productPrice = document.getElementById('product-price');
-const productNote = document.getElementById('product-note');
-const btnProduct = document.getElementById('btnProduct');
 btnProduct.addEventListener('click', productData);
 function productData(e) {
     e.preventDefault();
@@ -78,7 +84,7 @@ function productData(e) {
                 <td>${descProValue}</td>
                 <td>${priceValue}</td>
                 <td>${noteProValue}</td>
-                <td><button type="submit" class="btn-delete">DELETE</button></td>
+                <td><button type="submit" class="btn-delete">x</button></td>
             </tr>
         `;
         oldTableProduct += newTableProduct;

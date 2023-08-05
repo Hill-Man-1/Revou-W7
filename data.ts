@@ -1,12 +1,39 @@
+// DROP DOWN VARIABLES START
+
 const myOption:HTMLSelectElement = document.getElementById('my-option') as HTMLSelectElement;
 const product:HTMLElement = document.getElementById('product') as HTMLElement;
 const cash:HTMLElement = document.getElementById('cash') as HTMLElement;
 const tableCash:HTMLElement = document.getElementById('table-cash') as HTMLElement;
 const tableProduct:HTMLElement = document.getElementById('table-product') as HTMLElement;
 
+// DROP DOWN VARIABLES END
+
+//  INPUT CASH VARIABLES START
+
+const formCash:HTMLFormElement = document.getElementById('form-cash') as HTMLFormElement;
+const cashDesc:HTMLInputElement = document.getElementById('cash-desc') as HTMLInputElement;
+const cashAmount:HTMLInputElement = document.getElementById('cash-amount') as HTMLInputElement;
+const cashNote:HTMLInputElement = document.getElementById('cash-note') as HTMLInputElement;
+const btnCash:HTMLButtonElement = document.getElementById('btnCash') as HTMLButtonElement;
+
+// INPUT CASH VARIABLES END
+
+
+// INPUT PRODUCT VARIABLES START
+
+const formProduct:HTMLFormElement = document.getElementById('form-product') as HTMLFormElement;
+const productDesc:HTMLInputElement = document.getElementById('product-desc') as HTMLInputElement;
+const productPrice:HTMLInputElement = document.getElementById('product-price') as HTMLInputElement;
+const productNote:HTMLInputElement = document.getElementById('product-note') as HTMLInputElement;
+const btnProduct:HTMLButtonElement = document.getElementById('btnProduct') as HTMLButtonElement;
+
+// INPUT PRODUCT VARIABLES END
+
+
+
 myOption.addEventListener("change", dropdownFunc);
 
-function dropdownFunc() {
+function dropdownFunc():void {
     if (myOption.value === "1") {
         cash.style.display = "block";
         product.style.display = "none";
@@ -24,12 +51,6 @@ function dropdownFunc() {
         tableCash.hidden = true;
     }
 }
-
-const formCash:HTMLFormElement = document.getElementById('form-cash') as HTMLFormElement;
-const cashDesc:HTMLInputElement = document.getElementById('cash-desc') as HTMLInputElement;
-const cashAmount:HTMLInputElement = document.getElementById('cash-amount') as HTMLInputElement;
-const cashNote:HTMLInputElement = document.getElementById('cash-note') as HTMLInputElement;
-const btnCash:HTMLButtonElement = document.getElementById('btnCash') as HTMLButtonElement;
 
 btnCash.addEventListener('click', cashData);
 
@@ -50,7 +71,7 @@ function cashData(e:Event):void {
                 <td>${descValue}</td>
                 <td>${cashValue}</td>
                 <td>${noteValue}</td>
-                <td><button type="submit" class="btn-delete">DELETE</button></td>
+                <td><button type="submit" class="btn-delete">x</button></td>
             </tr>
         `;
         oldTableCash += newTableCash;
@@ -58,11 +79,7 @@ function cashData(e:Event):void {
     }
 }
 
-const formProduct:HTMLFormElement = document.getElementById('form-product') as HTMLFormElement;
-const productDesc:HTMLInputElement = document.getElementById('product-desc') as HTMLInputElement;
-const productPrice:HTMLInputElement = document.getElementById('product-price') as HTMLInputElement;
-const productNote:HTMLInputElement = document.getElementById('product-note') as HTMLInputElement;
-const btnProduct:HTMLButtonElement = document.getElementById('btnProduct') as HTMLButtonElement;
+
 
 btnProduct.addEventListener('click', productData);
 
@@ -83,7 +100,7 @@ function productData(e: Event): void {
                 <td>${descProValue}</td>
                 <td>${priceValue}</td>
                 <td>${noteProValue}</td>
-                <td><button type="submit" class="btn-delete">DELETE</button></td>
+                <td><button type="submit" class="btn-delete">x</button></td>
             </tr>
         `;
         oldTableProduct += newTableProduct;
@@ -91,7 +108,7 @@ function productData(e: Event): void {
     }
 }
 
-document.addEventListener('click', (e: Event) => {
+document.addEventListener('click', (e: Event):void => {
     const isTodoDelete = (e.target as Element).classList.contains('btn-delete');
     if (isTodoDelete) {
         const btnDelete = e.target as Element;
